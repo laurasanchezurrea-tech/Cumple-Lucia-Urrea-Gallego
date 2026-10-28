@@ -1,0 +1,391 @@
+```html
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60 Años - Olga Lucía Urrea Gallego</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#f9e79f',
+                            DEFAULT: '#d4af37',
+                            dark: '#aa7c11',
+                            rose: '#e8c39e'
+                        },
+                        blush: {
+                            50: '#fff5f7',
+                            100: '#fedee6',
+                            200: '#fcc2d1',
+                            300: '#f999b2',
+                            400: '#f46187',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        script: ['"Great Vibes"', 'cursive'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados para gradientes dorados y animaciones */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa7c11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #fbf5b7 50%, #aa7c11 100%);
+        }
+
+        .bg-gold-btn {
+            background: linear-gradient(135deg, #b38728 0%, #fbf5b7 50%, #9e721d 100%);
+            background-size: 200% 200%;
+            transition: all 0.5s ease;
+        }
+
+        .bg-gold-btn:hover {
+            background-position: right center;
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 20px 40px rgba(180, 100, 120, 0.18);
+        }
+
+        /* Destellos dorados dinámicos */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 0 10px 2px #fcf6ba;
+            pointer-events: none;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Mariposas Voladoras */
+        .butterfly-container {
+            position: absolute;
+            pointer-events: none;
+            z-index: 15;
+            animation: floatAround 14s infinite ease-in-out;
+        }
+
+        .butterfly {
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 4px 6px rgba(180, 100, 120, 0.2));
+        }
+
+        .wing-left {
+            transform-origin: right center;
+            animation: flapLeft 0.5s infinite alternate ease-in-out;
+        }
+
+        .wing-right {
+            transform-origin: left center;
+            animation: flapRight 0.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes flapLeft {
+            0% { transform: scaleX(1); }
+            100% { transform: scaleX(0.2); }
+        }
+
+        @keyframes flapRight {
+            0% { transform: scaleX(1); }
+            100% { transform: scaleX(0.2); }
+        }
+
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -40px) rotate(10deg); }
+            50% { transform: translate(-20px, -80px) rotate(-10deg); }
+            75% { transform: translate(40px, -40px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        /* Flotación suave para las flores */
+        .floating-flower {
+            animation: gentleFloat 6s infinite ease-in-out alternate;
+        }
+
+        @keyframes gentleFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-8px) rotate(3deg); }
+        }
+
+        /* Animación suave para la entrada de elementos */
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.5s; }
+        .delay-3 { animation-delay: 0.8s; }
+        .delay-4 { animation-delay: 1.1s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blush-50 via-pink-100 to-blush-100 text-gray-800 font-sans min-h-full flex items-center justify-center p-3 sm:p-6 overflow-x-hidden relative">
+
+    <!-- Fondo de Destellos Mágicos -->
+    <div id="sparkles-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Mariposa animada 1 (Arriba Izquierda) -->
+    <div class="butterfly-container top-12 left-4 sm:left-12" style="animation-delay: 0s;">
+        <svg class="butterfly" viewBox="0 0 100 100">
+            <g class="wing-left">
+                <path d="M50 50 C20 10, 0 20, 10 50 C20 70, 45 60, 50 50 Z" fill="#F46187" opacity="0.85"/>
+                <path d="M45 45 C25 20, 10 25, 20 45 Z" fill="#FBF5B7" opacity="0.9"/>
+            </g>
+            <g class="wing-right">
+                <path d="M50 50 C80 10, 100 20, 90 50 C80 70, 55 60, 50 50 Z" fill="#F46187" opacity="0.85"/>
+                <path d="M55 45 C75 20, 90 25, 80 45 Z" fill="#FBF5B7" opacity="0.9"/>
+            </g>
+            <path d="M50 35 L50 65" stroke="#aa7c11" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <!-- Mariposa animada 2 (Abajo Derecha) -->
+    <div class="butterfly-container bottom-20 right-6 sm:right-16" style="animation-delay: -5s; animation-duration: 12s;">
+        <svg class="butterfly" viewBox="0 0 100 100" style="transform: scale(1.2) rotate(-15deg);">
+            <g class="wing-left">
+                <path d="M50 50 C20 10, 0 20, 10 50 C20 70, 45 60, 50 50 Z" fill="#d4af37" opacity="0.85"/>
+                <path d="M45 45 C25 20, 10 25, 20 45 Z" fill="#fedee6" opacity="0.9"/>
+            </g>
+            <g class="wing-right">
+                <path d="M50 50 C80 10, 100 20, 90 50 C80 70, 55 60, 50 50 Z" fill="#d4af37" opacity="0.85"/>
+                <path d="M55 45 C75 20, 90 25, 80 45 Z" fill="#fedee6" opacity="0.9"/>
+            </g>
+            <path d="M50 35 L50 65" stroke="#4a2e00" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <!-- Contenedor Principal de la Tarjeta -->
+    <main class="relative z-10 w-full max-w-lg glass-card rounded-3xl p-6 sm:p-10 my-4 text-center border-2 border-gold/40 shadow-2xl overflow-hidden fade-in-up">
+        
+        <!-- Ilustración Floral Superior Izquierda -->
+        <div class="absolute -top-4 -left-4 w-36 h-36 pointer-events-none floating-flower z-0">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Rosas y Hojas -->
+                <path fill="#84a98c" d="M10,80 Q40,30 80,10 Q50,60 10,80 Z" opacity="0.7"/>
+                <path fill="#52796f" d="M20,90 Q70,50 100,20 Q60,80 20,90 Z" opacity="0.6"/>
+                <!-- Flor Rosa Grande -->
+                <circle cx="45" cy="45" r="32" fill="#f46187" opacity="0.3"/>
+                <circle cx="45" cy="45" r="24" fill="#fcc2d1" opacity="0.8"/>
+                <path d="M35 40 C 40 30, 50 30, 55 40 C 60 50, 30 55, 35 40 Z" fill="#f46187" opacity="0.9"/>
+                <circle cx="45" cy="45" r="8" fill="#d4af37"/>
+                <!-- Flor Dorada -->
+                <circle cx="85" cy="30" r="16" fill="#fbf5b7" opacity="0.9"/>
+                <circle cx="85" cy="30" r="12" fill="#d4af37" opacity="0.7"/>
+                <circle cx="85" cy="30" r="5" fill="#fff"/>
+            </svg>
+        </div>
+
+        <!-- Ilustración Floral Inferior Derecha -->
+        <div class="absolute -bottom-4 -right-4 w-36 h-36 pointer-events-none floating-flower z-0" style="animation-delay: -3s;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+                <!-- Rosas y Hojas -->
+                <path fill="#84a98c" d="M10,80 Q40,30 80,10 Q50,60 10,80 Z" opacity="0.7"/>
+                <path fill="#52796f" d="M20,90 Q70,50 100,20 Q60,80 20,90 Z" opacity="0.6"/>
+                <!-- Flor Rosa Grande -->
+                <circle cx="45" cy="45" r="32" fill="#f46187" opacity="0.3"/>
+                <circle cx="45" cy="45" r="24" fill="#fcc2d1" opacity="0.8"/>
+                <path d="M35 40 C 40 30, 50 30, 55 40 C 60 50, 30 55, 35 40 Z" fill="#f46187" opacity="0.9"/>
+                <circle cx="45" cy="45" r="8" fill="#d4af37"/>
+                <!-- Flor Dorada -->
+                <circle cx="85" cy="30" r="16" fill="#fbf5b7" opacity="0.9"/>
+                <circle cx="85" cy="30" r="12" fill="#d4af37" opacity="0.7"/>
+                <circle cx="85" cy="30" r="5" fill="#fff"/>
+            </svg>
+        </div>
+
+        <!-- Encabezado / Número 60 -->
+        <div class="fade-in-up delay-1 relative z-10">
+            <span class="inline-block text-xs uppercase tracking-[0.3em] font-semibold text-gray-500 mb-1">Estás cordialmente invitado a celebrar</span>
+            <div class="relative inline-block my-2">
+                <h1 class="font-script text-7xl sm:text-8xl text-gold-gradient font-bold leading-none drop-shadow-sm py-1">60</h1>
+                <span class="font-serif text-xl sm:text-2xl text-gray-700 tracking-widest uppercase block -mt-2">Años</span>
+            </div>
+            <h2 class="font-serif text-2xl sm:text-3xl text-gray-800 font-bold tracking-wide mt-2 border-b border-gold/30 pb-3">
+                Olga Lucía Urrea Gallego
+            </h2>
+        </div>
+
+        <!-- Separador Floral Intermedio -->
+        <div class="flex items-center justify-center gap-2 my-2 text-gold opacity-80">
+            <i class="fa-solid fa-leaf text-xs"></i>
+            <i class="fa-solid fa-seedling text-sm"></i>
+            <i class="fa-solid fa-spa text-base"></i>
+            <i class="fa-solid fa-seedling text-sm"></i>
+            <i class="fa-solid fa-leaf text-xs"></i>
+        </div>
+
+        <!-- Frase Poética -->
+        <div class="my-5 px-2 sm:px-4 fade-in-up delay-2 relative z-10">
+            <p class="font-serif italic text-base sm:text-lg text-gray-700 leading-relaxed relative">
+                <span class="text-3xl text-gold font-script leading-none inline-block -ml-2">“</span>
+                Hay historias y personas que no voy a olvidar, y recuerdos como este que siempre voy a guardar. Porque son parte de mi vida, te invito a mi celebración.
+                <span class="text-3xl text-gold font-script leading-none inline-block">”</span>
+            </p>
+        </div>
+
+        <!-- Bloque de Detalles del Evento -->
+        <div class="bg-white/70 rounded-2xl p-4 sm:p-5 my-6 border border-gold/30 shadow-inner fade-in-up delay-3 space-y-3 relative z-10">
+            <div class="flex items-center justify-center gap-3 text-gray-800">
+                <i class="fa-regular fa-calendar-check text-gold text-xl"></i>
+                <span class="font-serif font-bold text-lg">Jueves, 27 de noviembre de 2026</span>
+            </div>
+            
+            <div class="flex items-center justify-center gap-3 text-gray-700 text-sm sm:text-base">
+                <i class="fa-regular fa-clock text-gold"></i>
+                <span><strong>00:00 h</strong> (Hora Alemania)</span>
+            </div>
+
+            <div class="flex items-center justify-center gap-3 text-gray-700 text-sm sm:text-base">
+                <i class="fa-solid fa-location-dot text-gold"></i>
+                <span>Alemania</span>
+            </div>
+
+            <!-- Nota especial -->
+            <div class="pt-2 border-t border-gray-200/60 mt-3 text-xs sm:text-sm text-pink-900/80 italic">
+                <i class="fa-solid fa-wine-glass text-blush-400 mr-1"></i>
+                Por favor trae una bebida de tu gusto para brindar juntos. ¡Te esperamos!
+            </div>
+        </div>
+
+        <!-- Contador Regresivo -->
+        <div class="my-6 fade-in-up delay-3 relative z-10">
+            <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">Faltan muy poco para el gran día:</p>
+            <div id="countdown" class="grid grid-cols-4 gap-2 text-center max-w-xs mx-auto">
+                <div class="bg-white/80 rounded-xl p-2 border border-gold/20 shadow-sm">
+                    <span id="days" class="block font-bold text-lg sm:text-xl text-gold-dark">00</span>
+                    <span class="text-[10px] uppercase text-gray-500">Días</span>
+                </div>
+                <div class="bg-white/80 rounded-xl p-2 border border-gold/20 shadow-sm">
+                    <span id="hours" class="block font-bold text-lg sm:text-xl text-gold-dark">00</span>
+                    <span class="text-[10px] uppercase text-gray-500">Horas</span>
+                </div>
+                <div class="bg-white/80 rounded-xl p-2 border border-gold/20 shadow-sm">
+                    <span id="minutes" class="block font-bold text-lg sm:text-xl text-gold-dark">00</span>
+                    <span class="text-[10px] uppercase text-gray-500">Min</span>
+                </div>
+                <div class="bg-white/80 rounded-xl p-2 border border-gold/20 shadow-sm">
+                    <span id="seconds" class="block font-bold text-lg sm:text-xl text-gold-dark">00</span>
+                    <span class="text-[10px] uppercase text-gray-500">Seg</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de Acción Interactivos -->
+        <div class="space-y-3 pt-2 fade-in-up delay-4 relative z-10">
+            
+            <!-- Botón Principal: Agregar a Google Calendar -->
+            <a href="https://calendar.app.google/TvRn53FGRqJr45Sp8" target="_blank" rel="noopener noreferrer" 
+               class="group relative w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-full bg-gold-btn text-gray-900 font-bold text-sm sm:text-base tracking-wide shadow-lg hover:shadow-xl transform active:scale-95 transition-all duration-300">
+                <i class="fa-solid fa-calendar-plus text-lg group-hover:scale-110 transition-transform"></i>
+                <span>Añadir a Google Calendar</span>
+                <i class="fa-solid fa-chevron-right text-xs opacity-60 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <!-- Botón RSVP: WhatsApp -->
+            <a href="https://wa.me/474057965?text=¡Hola!%20Confirmado,%20asistiré%20al%20cumpleaños%20de%20Olga%20Lucía.%20🥂" target="_blank" rel="noopener noreferrer"
+               class="w-full inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm sm:text-base shadow-md hover:shadow-lg transform active:scale-95 transition-all duration-300">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Confirmar Asistencia (RSVP)</span>
+            </a>
+
+        </div>
+
+        <!-- Pie de página -->
+        <footer class="mt-8 text-xs text-gray-400 font-light relative z-10">
+            ¡Esperamos contar con tu cálida presencia! 💕
+        </footer>
+    </main>
+
+    <!-- Script para interactividad: Contador y Destellos -->
+    <script>
+        // 1. Animación de Destellos Mágicos en el Fondo
+        function createSparkles() {
+            const container = document.getElementById('sparkles-container');
+            const sparkleCount = 20;
+
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.top = `${Math.random() * 100}%`;
+                sparkle.style.animationDelay = `${Math.random() * 3}s`;
+                sparkle.style.animationDuration = `${2 + Math.random() * 3}s`;
+                container.appendChild(sparkle);
+            }
+        }
+
+        // 2. Contador Regresivo hacia la fecha del evento (27 de Noviembre 2026, 00:00 hora Alemania / UTC+1)
+        function updateCountdown() {
+            // Fecha objetivo: 27 de Noviembre 2026, 00:00:00 CET (UTC+1)
+            const targetDate = new Date('2026-11-27T00:00:00+01:00').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = String(days).padStart(2, '0');
+                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('countdown').innerHTML = "<span class='col-span-4 text-gold-dark font-bold text-lg'>¡Hoy es el gran día! 🥂🎉</span>";
+            }
+        }
+
+        // Inicializar funciones al cargar la página
+        window.onload = function() {
+            createSparkles();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        };
+    </script>
+</body>
+</html>
+```
